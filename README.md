@@ -4,6 +4,9 @@
 Our team name is "Vigna radiata", the scientific name for [mung bean](https://en.wikipedia.org/wiki/Mung_bean).
 
 ## LINKS TO IMPORTANT STUFF
+###### (Edit as necessary)
 
 - [Trello Board]()
 - [Game Design Document (Google Docs)]()
+- [Asset List (Google Sheets)]()
+- 
