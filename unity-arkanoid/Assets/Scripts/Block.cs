@@ -5,10 +5,26 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     public int hitsToBreak = 1;
+    public BlockType blockType = BlockType.White;
+
+    // Gold blocks are indestructable
+    public enum BlockType { White = 50, Orange = 60, Cyan = 70, Green = 80, Red = 90, Blue = 100, Magenta = 110, Yellow = 120, Silver = 1, Gold = -1 }; 
     private int hitsRemaining;
     // Start is called before the first frame update
     void Start()
     {
+        if (blockType == BlockType.Silver)
+        {
+            int extraSilverPoints = 0;
+            for (int i = 0; i < GameManager.Level; ++i)
+            {
+                if (GameManager.Level % 8 == 0)
+                {
+                    extraSilverPoints = i;
+                }
+            }
+            hitsToBreak = 2 + extraSilverPoints;
+        }
         hitsRemaining = hitsToBreak;
     }
 
@@ -22,10 +38,26 @@ public class Block : MonoBehaviour
     {
         if (collision.gameObject.name.Contains("Ball"))
         {
-            hitsRemaining--;
-            if (hitsRemaining <= 0)
+            if (blockType != BlockType.Gold)
             {
-                Destroy(gameObject);
+                hitsRemaining--;
+                if (hitsRemaining <= 0)
+                {
+                    if (blockType <= BlockType.Yellow && blockType >= BlockType.White)
+                    {
+                        GameManager.Score += (int)blockType;
+                    }
+                    else //if (blockType == BlockType.Silver)
+                    {
+                        GameManager.Score += GameManager.Level * 50;
+                    }
+                    Destroy(gameObject);
+                }
+            }
+
+            if (!(GameObject.FindGameObjectsWithTag("Ball").Length > 1))
+            {
+                // Spawn powerup
             }
         }
     }

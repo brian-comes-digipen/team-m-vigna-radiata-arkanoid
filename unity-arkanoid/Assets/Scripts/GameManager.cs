@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static int Level = 1;
+    public static int Level = 1; // Just start levels at 1, we don't need base-zero here. :/
     public static int Lives = 3;
     public static int Score = 0;
     public static GameState gameState;
     public enum GameState { Title, Game, Dead, Scores };
+
+    #region GameManager Instance Stuff
     private static GameManager _instance;
     public static GameManager instance
     {
@@ -23,6 +25,8 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
+    #endregion
+
     private void Awake()
     {
         //set the singleton _instance

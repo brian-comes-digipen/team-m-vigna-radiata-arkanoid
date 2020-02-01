@@ -13,13 +13,13 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PLAYER
+  - BORDER
+  - ENEMY
+  - BRICK
+  - BALL
+  - PLAYERPROJECTILE
+  - NOCOLLIDE
   - 
   - 
   - 
