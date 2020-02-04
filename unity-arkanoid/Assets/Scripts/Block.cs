@@ -16,9 +16,9 @@ public class Block : MonoBehaviour
         if (blockType == BlockType.Silver)
         {
             int extraSilverPoints = 0;
-            for (int i = 0; i < GameManager.Level; ++i)
+            for (int i = 0; i < GameManager.level; ++i)
             {
-                if (GameManager.Level % 8 == 0)
+                if (GameManager.level % 8 == 0)
                 {
                     extraSilverPoints = i;
                 }
@@ -45,20 +45,20 @@ public class Block : MonoBehaviour
                 {
                     if (blockType <= BlockType.Yellow && blockType >= BlockType.White)
                     {
-                        GameManager.Score += (int)blockType;
+                        GameManager.score += (int)blockType;
                     }
                     else //if (blockType == BlockType.Silver)
                     {
-                        GameManager.Score += GameManager.Level * 50;
+                        GameManager.score += GameManager.level * 50;
                     }
                     Destroy(gameObject);
                 }
             }
 
-            if (!(GameObject.FindGameObjectsWithTag("Ball").Length > 1))
-            {
-                // Spawn powerup
-            }
+            //if (!(GameObject.FindGameObjectsWithTag("Ball").Length > 1))
+            //{
+            //    // Spawn powerup
+            //}
         }
     }
 }

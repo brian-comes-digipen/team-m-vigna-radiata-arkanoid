@@ -6,16 +6,19 @@ public class Powerup : MonoBehaviour
 {
     public static PowerupType powerupType;
     public enum PowerupType { Laser, Enlarge, Catch, Slow, Break, Disruption, Player };
+    public float fallSpeed = -50f;
+
+    Rigidbody2D rb2D;
     // Start is called before the first frame update
     void Start()
     {
-
+        rb2D = GetComponent<Rigidbody2D>();
+        rb2D.velocity = new Vector2(0, fallSpeed);
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -45,7 +48,7 @@ public class Powerup : MonoBehaviour
             }
             else // if (powerupType == PowerupType.Player)
             {
-                GameManager.Lives++;
+                GameManager.lives++;
             }
             // Powerup has been collected, destroy self
             Destroy(gameObject);
