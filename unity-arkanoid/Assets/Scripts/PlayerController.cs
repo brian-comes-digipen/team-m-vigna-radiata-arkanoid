@@ -11,9 +11,11 @@ public class PlayerController : MonoBehaviour
     public float leftXBoundary = -96.5f;
     public float rightXBoundary = 47.5f;
     public float speedInPixelsPerFrame = 2;
+    Rigidbody2D rb2D;
     // Start is called before the first frame update
     void Start()
     {
+        rb2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -33,7 +35,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             // Add mouse movement
-            transform.position = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, transform.position.y);
+            transform.position = new Vector2((float)Math.Round(Camera.main.ScreenToWorldPoint(Input.mousePosition).x * 2, MidpointRounding.AwayFromZero) / 2, transform.position.y);
         }
 
         if (transform.position.x > 47.5f)
