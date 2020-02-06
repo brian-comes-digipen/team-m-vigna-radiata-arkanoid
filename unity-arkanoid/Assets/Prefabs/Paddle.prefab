@@ -142,6 +142,8 @@ MonoBehaviour:
   leftXBoundary: -96.5
   rightXBoundary: 47.5
   speedInPixelsPerFrame: 2.75
+  LeftEnd: {fileID: 8316012128832448756}
+  RightEnd: {fileID: 8316012128615234464}
 --- !u!1 &8316012128615234466
 GameObject:
   m_ObjectHideFlags: 0

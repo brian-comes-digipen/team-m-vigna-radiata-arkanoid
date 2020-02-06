@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1404015951037817197}
   - component: {fileID: 1404015951037817199}
   - component: {fileID: 1404015951037817196}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Brick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitsToBreak: 1
-  blockType: 50
+  blockType: 80
+  powerupPrefab: {fileID: 3911798531369517496, guid: 5454ee6867fd03e49ae15ca0c1aa76e7,
+    type: 3}
 --- !u!50 &1404015951037817199
 Rigidbody2D:
   serializedVersion: 4

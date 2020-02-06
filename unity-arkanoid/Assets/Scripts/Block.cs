@@ -8,7 +8,8 @@ public class Block : MonoBehaviour
     public BlockType blockType = BlockType.White;
 
     // Gold blocks are indestructable
-    public enum BlockType { White = 50, Orange = 60, Cyan = 70, Green = 80, Red = 90, Blue = 100, Magenta = 110, Yellow = 120, Silver = 1, Gold = -1 }; 
+    public enum BlockType { White = 50, Orange = 60, Cyan = 70, Green = 80, Red = 90, Blue = 100, Magenta = 110, Yellow = 120, Silver = 1, Gold = -1 };
+    public GameObject powerupPrefab = null;
     private int hitsRemaining;
     // Start is called before the first frame update
     void Start()
@@ -51,6 +52,23 @@ public class Block : MonoBehaviour
                     {
                         GameManager.score += GameManager.level * 50;
                     }
+
+                    System.Random r = new System.Random();
+                    if (r.Next(0, 100) <= 27)
+                    {
+                        GameObject spawnedPowerup = Instantiate(powerupPrefab);
+                        int powerID = r.Next(0, 4);
+                        if (powerID == 3)
+                        {
+                            spawnedPowerup.GetComponent<Powerup>().powerupType = Powerup.PowerupType.Player;
+                        }
+                        else
+                        {
+                            spawnedPowerup.GetComponent<Powerup>().powerupType = (Powerup.PowerupType)powerID;
+                        }
+                        spawnedPowerup.transform.position = transform.position;
+                    }
+
                     Destroy(gameObject);
                 }
             }
