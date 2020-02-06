@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Audio : MonoBehaviour
 {
-    public string SoundName; 
+    private RandomContainer randomC;
     // Start is called before the first frame update
     void Start()
     {
-        
+        randomC = GameObject.FindObjectOfType(typeof(RandomContainer)) as RandomContainer;
     }
 
     // Update is called once per frame
@@ -17,13 +18,17 @@ public class Audio : MonoBehaviour
         
     }
     //put onto ball
-    private void OnCollisionEnter2D(collision2D, collision)
+    private void OnCollisionEnter2D(Collider2D collider2D)
     {
-        if (OnCollisionEnter2D.gameObject.name == "Paddle")
+        if (collider2D.gameObject.name == "Paddle")
         {
             print("paddle hit sfx played");
-            AudioSource.PlayClipAtPoint(SoundName);
+            randomC.PlaySound(0);
         }
-        if (OnCollisionEnter2D.gameObject.name == "")
+        if (collider2D.gameObject.name == "Wall")
+        {
+            print("wall hit sfx played");
+            randomC.PlaySound(1);
+        }
     }
 }
