@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     public float leftXBoundary = -96.5f;
     public float rightXBoundary = 47.5f;
     public float speedInPixelsPerFrame = 2;
+
+    public SpriteRenderer LeftEnd;
+    public SpriteRenderer RightEnd;
+
     Rigidbody2D rb2D;
     // Start is called before the first frame update
     void Start()
@@ -45,6 +49,17 @@ public class PlayerController : MonoBehaviour
         if (transform.position.x < -96.5f)
         {
             transform.position = new Vector2(-96.5f, transform.position.y);
+        }
+
+        if (paddleType == PaddleType.Laser)
+        {
+            LeftEnd.color = Color.black;
+            RightEnd.color = Color.black;
+        }
+        else
+        {
+            LeftEnd.color = new Color(181, 49, 33, 255);
+            RightEnd.color = new Color(181, 49, 33, 255);
         }
     }
 }

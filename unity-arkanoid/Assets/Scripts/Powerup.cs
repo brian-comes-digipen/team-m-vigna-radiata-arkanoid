@@ -4,27 +4,58 @@ using UnityEngine;
 
 public class Powerup : MonoBehaviour
 {
-    public static PowerupType powerupType;
     public enum PowerupType { Laser, Enlarge, Catch, Slow, Break, Disruption, Player };
+    public PowerupType powerupType = PowerupType.Laser;
     public float fallSpeed = -50f;
 
     Rigidbody2D rb2D;
+    SpriteRenderer spr;
     // Start is called before the first frame update
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         rb2D.velocity = new Vector2(0, fallSpeed);
+        spr = GetComponent<SpriteRenderer>();
+        if (powerupType == PowerupType.Laser)
+        {
+            spr.color = new Color(255, 0, 0);
+        }
+        else if (powerupType == PowerupType.Enlarge)
+        {
+            spr.color = new Color(0, 0, 255);
+        }
+        else if (powerupType == PowerupType.Catch)
+        {
+            
+        }
+        else if (powerupType == PowerupType.Break)
+        {
+            spr.color = new Color(255, 0, 255);
+        }
+        else if (powerupType == PowerupType.Disruption)
+        {
+            spr.color = new Color(0, 255, 255);
+        }
+        else // if (powerupType == PowerupType.Player)
+        {
+            spr.color = new Color(128, 128, 128);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (transform.position.y <= -128)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name.Contains("Player"))
+        if (collision.gameObject.name == "Paddle")
         {
+            print("powerup touched player");
             // Modify the player, ball, or play area based on the powerup type, quite self-explanitory
             if (powerupType == PowerupType.Laser)
             {
