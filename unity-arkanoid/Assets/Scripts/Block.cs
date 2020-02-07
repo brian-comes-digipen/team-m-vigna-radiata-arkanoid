@@ -37,7 +37,7 @@ public class Block : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name.Contains("Ball"))
+        if (collision.gameObject.name.Contains("Ball") || collision.gameObject.name.Contains("Laser"))
         {
             if (blockType != BlockType.Gold)
             {

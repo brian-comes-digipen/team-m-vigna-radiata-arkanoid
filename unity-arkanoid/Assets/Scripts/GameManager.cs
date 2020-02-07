@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public enum GameState { Title, GameInit, Game, Dead, Scores };
     public GameObject[] balls = { null, null, null };
 
+    public TextMeshProUGUI oneUpText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
     public TextMeshProUGUI levelText;
@@ -52,10 +53,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        oneUpText = GameObject.Find("1UPHeader_Text").GetComponent<TextMeshProUGUI>();
         scoreText = GameObject.Find("Score_Text").GetComponent<TextMeshProUGUI>();
         highScoreText = GameObject.Find("HighScore_Text").GetComponent<TextMeshProUGUI>();
         livesText = GameObject.Find("Lives_Text").GetComponent<TextMeshProUGUI>();
         levelText = GameObject.Find("Level_Text").GetComponent<TextMeshProUGUI>();
+        StartCoroutine(oneUpTextFlash());
     }
 
     // Update is called once per frame
@@ -69,5 +72,14 @@ public class GameManager : MonoBehaviour
         scoreText.text = $"  {score:00000}";
         livesText.text = $"  {lives}";
         levelText.text = $"{level}";
+    }
+
+    IEnumerator oneUpTextFlash()
+    {
+        while (true)
+        {
+            oneUpText.enabled = !oneUpText.enabled;
+            yield return new WaitForSeconds(1);
+        }
     }
 }
