@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public float rightXBoundary = 47.5f;
     public float speedInPixelsPerFrame = 2;
 
+    public bool canFireLasers = false;
+
     public SpriteRenderer LeftEnd;
     public SpriteRenderer RightEnd;
 
@@ -51,28 +53,43 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector2((float)Math.Round(Camera.main.ScreenToWorldPoint(Input.mousePosition).x * 2, MidpointRounding.AwayFromZero) / 2, transform.position.y);
         }
 
-        if (transform.position.x > 47.5f)
+        if (paddleType == PaddleType.Enlarge)
         {
-            transform.position = new Vector2(47.5f, transform.position.y);
+            if (transform.position.x > rightXBoundary - 8)
+            {
+                transform.position = new Vector2(rightXBoundary - 8, transform.position.y);
+            }
+            if (transform.position.x < leftXBoundary + 8)
+            {
+                transform.position = new Vector2(leftXBoundary + 8, transform.position.y);
+            }
         }
-        if (transform.position.x < -96.5f)
+        else // if (paddleType != PaddleType.Enlarge)
         {
-            transform.position = new Vector2(-96.5f, transform.position.y);
+            if (transform.position.x > rightXBoundary)
+            {
+                transform.position = new Vector2(rightXBoundary, transform.position.y);
+            }
+            if (transform.position.x < leftXBoundary)
+            {
+                transform.position = new Vector2(leftXBoundary, transform.position.y);
+            }
         }
 
         if (paddleType == PaddleType.Laser)
         {
-            LeftEnd.color = Color.black;
-            RightEnd.color = Color.black;
+            LeftEnd.color = Color.red;
+            RightEnd.color = Color.red;
 
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space) || (useMouse && Input.GetMouseButton(0)))
             {
-                Instantiate(laserProjectilePrefab, new Vector3(transform.position.x - 13.5f, transform.position.y + 11.5f), new Quaternion(0, 0, 0, 0));
-                Instantiate(laserProjectilePrefab, new Vector3(transform.position.x + 13.5f, transform.position.y + 11.5f), new Quaternion(0, 0, 0, 0));
+                StartCoroutine(FireLasers());
             }
         }
         else if (paddleType == PaddleType.Sticky)
         {
+            LeftEnd.color = Color.blue;
+            RightEnd.color = Color.blue;
             GameObject.Find("Ball").GetComponent<Ball>().shouldStickToPaddle = true;
             if (Input.GetKey(KeyCode.Space) && GameObject.Find("Ball").GetComponent<Ball>().ballState == Ball.BallState.Stuck)
             {
@@ -81,13 +98,20 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(GameObject.Find("Ball").GetComponent<Ball>().LaunchBall());
             }
         }
+        else if (paddleType == PaddleType.Sticky)
+        {
+            LeftEnd.color = Color.green;
+            RightEnd.color = Color.green;
+        }
         else
         {
-            LeftEnd.color =  new Color(181f / 255f, 49f / 255f, 33f / 255f, 255f / 255f);
+            LeftEnd.color = new Color(181f / 255f, 49f / 255f, 33f / 255f, 255f / 255f);
             RightEnd.color = new Color(181f / 255f, 49f / 255f, 33f / 255f, 255f / 255f);
+
+            GameObject.Find("Ball").GetComponent<Ball>().shouldStickToPaddle = false;
         }
 
-        //Kyle
+        #region Kyle's Janky Extension Code
         if (paddleType == PaddleType.Enlarge)
         {
             print(LeftPiece.transform.localPosition.x + 8);
@@ -119,6 +143,26 @@ public class PlayerController : MonoBehaviour
                 GameObject.Find("Paddle").GetComponent<CapsuleCollider2D>().size = new Vector2(48, 8);
             }
         }
-        //End
+        #endregion
+    }
+
+    IEnumerator FireLasers()
+    {
+        if (canFireLasers)
+        {
+            Instantiate(laserProjectilePrefab, new Vector3(transform.position.x - 13.5f, transform.position.y + 11.5f), new Quaternion(0, 0, 0, 0));
+            Instantiate(laserProjectilePrefab, new Vector3(transform.position.x + 13.5f, transform.position.y + 11.5f), new Quaternion(0, 0, 0, 0));
+            StartCoroutine(LaserCooldown());
+            yield return null;
+        }
+        yield return null;
+    }
+
+    IEnumerator LaserCooldown()
+    {
+        canFireLasers = false;
+        yield return new WaitForSeconds(.5f);
+        canFireLasers = true;
+        yield return null;
     }
 }

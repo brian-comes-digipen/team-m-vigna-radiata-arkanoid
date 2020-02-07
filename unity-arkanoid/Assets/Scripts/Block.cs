@@ -32,7 +32,7 @@ public class Block : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -57,15 +57,8 @@ public class Block : MonoBehaviour
                     if (r.Next(0, 100) <= 27)
                     {
                         GameObject spawnedPowerup = Instantiate(powerupPrefab);
-                        int powerID = r.Next(0, 4);
-                        if (powerID == 3)
-                        {
-                            spawnedPowerup.GetComponent<Powerup>().powerupType = Powerup.PowerupType.Player;
-                        }
-                        else
-                        {
-                            spawnedPowerup.GetComponent<Powerup>().powerupType = (Powerup.PowerupType)powerID;
-                        }
+                        int powerID = r.Next(0, 5);
+                        spawnedPowerup.GetComponent<Powerup>().powerupType = (Powerup.PowerupType)powerID;
                         spawnedPowerup.transform.position = transform.position;
                     }
 
