@@ -15,12 +15,14 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer LeftEnd;
     public SpriteRenderer RightEnd;
 
-    
+    public GameObject laserProjectilePrefab;
 
-    public GameObject LeftEndPiece;
-    public GameObject LeftPiece;
-    public GameObject RightPiece;
-    public GameObject RightEndPiece;
+
+    ////// Part of Kyle's attempt at trying to get extension powerup to work
+    ////public GameObject LeftEndPiece;
+    ////public GameObject LeftPiece;
+    ////public GameObject RightPiece;
+    ////public GameObject RightEndPiece;
 
     Rigidbody2D rb2D;
     // Start is called before the first frame update
@@ -62,11 +64,27 @@ public class PlayerController : MonoBehaviour
         {
             LeftEnd.color = Color.black;
             RightEnd.color = Color.black;
+
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Instantiate(laserProjectilePrefab, new Vector3(transform.position.x - 13.5f, transform.position.y + 11.5f), new Quaternion(0, 0, 0, 0));
+                Instantiate(laserProjectilePrefab, new Vector3(transform.position.x + 13.5f, transform.position.y + 11.5f), new Quaternion(0, 0, 0, 0));
+            }
+        }
+        else if (paddleType == PaddleType.Sticky)
+        {
+            GameObject.Find("Ball").GetComponent<Ball>().shouldStickToPaddle = true;
+            if (Input.GetKey(KeyCode.Space) && GameObject.Find("Ball").GetComponent<Ball>().ballState == Ball.BallState.Stuck)
+            {
+                GameObject.Find("Ball").GetComponent<Ball>().shouldStickToPaddle = false;
+                StopCoroutine(GameObject.Find("Ball").GetComponent<Ball>().StickPaddle());
+                StartCoroutine(GameObject.Find("Ball").GetComponent<Ball>().LaunchBall());
+            }
         }
         else
         {
-            LeftEnd.color = new Color(181, 49, 33, 255);
-            RightEnd.color = new Color(181, 49, 33, 255);
+            LeftEnd.color =  new Color(181f / 255f, 49f / 255f, 33f / 255f, 255f / 255f);
+            RightEnd.color = new Color(181f / 255f, 49f / 255f, 33f / 255f, 255f / 255f);
         }
 
         ////// Extend code for paddle, wasn't working, is cut
@@ -111,14 +129,5 @@ public class PlayerController : MonoBehaviour
         ////    }
         ////}
         //////End
-
-        if (paddleType == PaddleType.Sticky)
-        {
-            this.GetComponent<Material>();
-        }
-        else
-        {
-
-        }
     }
 }

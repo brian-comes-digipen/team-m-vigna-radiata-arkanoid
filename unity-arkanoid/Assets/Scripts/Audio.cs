@@ -18,14 +18,14 @@ public class Audio : MonoBehaviour
         
     }
     //put onto ball
-    private void OnCollisionEnter2D(Collider2D collider2D)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collider2D.gameObject.name == "Paddle")
+        if (collision.gameObject.name == "Paddle")
         {
             print("paddle hit sfx played");
             randomC.PlaySound(0);
         }
-        if (collider2D.gameObject.name == "Wall")
+        if (collision.gameObject.name == "Wall")
         {
             print("wall hit sfx played");
             randomC.PlaySound(1);
