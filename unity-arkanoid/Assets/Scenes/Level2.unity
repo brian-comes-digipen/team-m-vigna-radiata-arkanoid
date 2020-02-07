@@ -16588,6 +16588,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ccd4a9d938ef734fb0df74ccb7358e9, type: 3}
+--- !u!1001 &4207797409891566475
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4207797410073943895, guid: b8fb4c6170415f0438ec0d98dc76bed5,
+        type: 3}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207797410073943914, guid: b8fb4c6170415f0438ec0d98dc76bed5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207797410073943914, guid: b8fb4c6170415f0438ec0d98dc76bed5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207797410073943914, guid: b8fb4c6170415f0438ec0d98dc76bed5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207797410073943914, guid: b8fb4c6170415f0438ec0d98dc76bed5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207797410073943914, guid: b8fb4c6170415f0438ec0d98dc76bed5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207797410073943914, guid: b8fb4c6170415f0438ec0d98dc76bed5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207797410073943914, guid: b8fb4c6170415f0438ec0d98dc76bed5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207797410073943914, guid: b8fb4c6170415f0438ec0d98dc76bed5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207797410073943914, guid: b8fb4c6170415f0438ec0d98dc76bed5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207797410073943914, guid: b8fb4c6170415f0438ec0d98dc76bed5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207797410073943914, guid: b8fb4c6170415f0438ec0d98dc76bed5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b8fb4c6170415f0438ec0d98dc76bed5, type: 3}
 --- !u!1001 &5720756230230264407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16734,16 +16803,5 @@ PrefabInstance:
       propertyPath: useMouse
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8316012128460789918, guid: bd4905dac2d014e49a15229df762dc00,
-        type: 3}
-      propertyPath: paddleType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8316012128460789918, guid: bd4905dac2d014e49a15229df762dc00,
-        type: 3}
-      propertyPath: laserProjectilePrefab
-      value: 
-      objectReference: {fileID: 4207797410073943895, guid: b8fb4c6170415f0438ec0d98dc76bed5,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd4905dac2d014e49a15229df762dc00, type: 3}

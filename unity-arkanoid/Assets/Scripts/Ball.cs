@@ -5,6 +5,7 @@ using System;
 
 public class Ball : MonoBehaviour
 {
+    public bool shouldStickToPaddle = true;
     public BallState ballState = BallState.Start;
     public enum BallState { Start, Bounce, Stuck, Active = Bounce };
 
@@ -29,17 +30,41 @@ public class Ball : MonoBehaviour
         }
     }
 
-    // Makes the ball follow/stick the paddle for a given number of seconds
-    IEnumerator StickPaddleThenLaunchAfterSeconds(float s)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        float elapsed = 0;
-        while (elapsed <= s)
+        if (collision.gameObject.GetComponent<PlayerController>() != null && collision.gameObject.GetComponent<PlayerController>().paddleType == PlayerController.PaddleType.Sticky)
         {
-            transform.position = (Vector2)GameObject.Find("Paddle").transform.position + new Vector2(3, 5.5f);
-            yield return new WaitForSeconds(1.0f / 120.0f); // Wait for one half frame (assuming 60fps is constant)
-            elapsed += 1.0f / 120.0f;
+            StartCoroutine(StickPaddle());
         }
+    }
 
+    // Makes the ball follow/stick the paddle for a given number of seconds
+    public IEnumerator StickPaddleThenLaunchAfterSeconds(float s)
+    {
+        StartCoroutine(StickPaddle());
+        yield return new WaitForSeconds(s);
+        shouldStickToPaddle = false;
+        StopCoroutine(StickPaddle());
+        StartCoroutine(LaunchBall());
+    }
+
+    public IEnumerator StickPaddle()
+    {
+        shouldStickToPaddle = true;
+        while (shouldStickToPaddle)
+        {
+            ballState = BallState.Stuck;
+            transform.position = (Vector2)GameObject.Find("Paddle").transform.position + new Vector2(3, 5.5f);
+            yield return new WaitForEndOfFrame();
+        }
+        yield return null;
+    }
+
+    public IEnumerator LaunchBall()
+    {
+        ballState = BallState.Active;
+        shouldStickToPaddle = false;
+        StopCoroutine(StickPaddle());
         System.Random r = new System.Random();
         if (r.Next(0, 2) == 0)
         {
@@ -49,5 +74,6 @@ public class Ball : MonoBehaviour
         {
             rb2D.velocity = new Vector2(-ballSpeed, ballSpeed);
         }
+        yield return null;
     }
 }

@@ -16734,16 +16734,5 @@ PrefabInstance:
       propertyPath: useMouse
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8316012128460789918, guid: bd4905dac2d014e49a15229df762dc00,
-        type: 3}
-      propertyPath: paddleType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8316012128460789918, guid: bd4905dac2d014e49a15229df762dc00,
-        type: 3}
-      propertyPath: laserProjectilePrefab
-      value: 
-      objectReference: {fileID: 4207797410073943895, guid: b8fb4c6170415f0438ec0d98dc76bed5,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd4905dac2d014e49a15229df762dc00, type: 3}
