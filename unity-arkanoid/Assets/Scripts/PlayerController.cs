@@ -18,11 +18,11 @@ public class PlayerController : MonoBehaviour
     public GameObject laserProjectilePrefab;
 
 
-    ////// Part of Kyle's attempt at trying to get extension powerup to work
-    ////public GameObject LeftEndPiece;
-    ////public GameObject LeftPiece;
-    ////public GameObject RightPiece;
-    ////public GameObject RightEndPiece;
+    // Part of Kyle's attempt at trying to get extension powerup to work
+    public GameObject LeftEndPiece;
+    public GameObject LeftPiece;
+    public GameObject RightPiece;
+    public GameObject RightEndPiece;
 
     Rigidbody2D rb2D;
     // Start is called before the first frame update
@@ -87,47 +87,38 @@ public class PlayerController : MonoBehaviour
             RightEnd.color = new Color(181f / 255f, 49f / 255f, 33f / 255f, 255f / 255f);
         }
 
-        ////// Extend code for paddle, wasn't working, is cut
-        //////Kyle
-        ////if (paddleType == PaddleType.Enlarge)
-        ////{
-        ////    print(LeftPiece.transform.localPosition.x + 8);
-        ////    print(RightPiece.transform.localPosition.x);
+        //Kyle
+        if (paddleType == PaddleType.Enlarge)
+        {
+            print(LeftPiece.transform.localPosition.x + 8);
+            print(RightPiece.transform.localPosition.x);
 
-        ////    if (LeftPiece.transform.localPosition.x + 8 == RightPiece.transform.localPosition.x)
-        ////    {
-        ////        LeftEndPiece.transform.localScale.Set(LeftEndPiece.transform.localScale.x - 200, LeftEndPiece.transform.localScale.y, LeftEndPiece.transform.localScale.z);
-        ////        LeftPiece.transform.localPosition.Set(LeftPiece.transform.localPosition.x - 200, LeftPiece.transform.localPosition.y, LeftPiece.transform.localPosition.z);
-        ////        RightPiece.transform.localPosition.Set(RightPiece.transform.localPosition.x + 200, RightPiece.transform.localPosition.y, RightPiece.transform.localPosition.z);
-        ////        RightEndPiece.transform.localPosition.Set(RightEndPiece.transform.localPosition.x + 200, RightEndPiece.transform.localPosition.y, RightEndPiece.transform.localPosition.z);
+            if (LeftPiece.transform.localPosition.x + 8 == RightPiece.transform.localPosition.x)
+            {
+                LeftEndPiece.transform.localPosition = new Vector3(LeftEndPiece.transform.localPosition.x - 8, LeftEndPiece.transform.localPosition.y, LeftEndPiece.transform.localPosition.z);
+                LeftPiece.transform.localPosition = new Vector3(LeftPiece.transform.localPosition.x - 8, LeftPiece.transform.localPosition.y, LeftPiece.transform.localPosition.z);
+                RightPiece.transform.localPosition = new Vector3(RightPiece.transform.localPosition.x + 8, RightPiece.transform.localPosition.y, RightPiece.transform.localPosition.z);
+                RightEndPiece.transform.localPosition = new Vector3(RightEndPiece.transform.localPosition.x + 8, RightEndPiece.transform.localPosition.y, RightEndPiece.transform.localPosition.z);
 
-        ////        print("Enlarged");
+                print("Enlarged");
 
-        ////        var Capsule = GetComponent<CapsuleCollider2D>();
+                GameObject.Find("Paddle").GetComponent<CapsuleCollider2D>().size = new Vector2(48, 8);
+            }
+        }
+        else
+        {
+            if (LeftPiece.transform.position.x + 8 != RightPiece.transform.position.x)
+            {
+                LeftEndPiece.transform.localPosition = new Vector3(LeftEndPiece.transform.localPosition.x + 8, LeftEndPiece.transform.localPosition.y, LeftEndPiece.transform.localPosition.z);
+                LeftPiece.transform.localPosition = new Vector3(LeftPiece.transform.localPosition.x + 8, LeftPiece.transform.localPosition.y, LeftPiece.transform.localPosition.z);
+                RightPiece.transform.localPosition = new Vector3(RightPiece.transform.localPosition.x - 8, RightPiece.transform.localPosition.y, RightPiece.transform.localPosition.z);
+                RightEndPiece.transform.localPosition = new Vector3(RightEndPiece.transform.localPosition.x - 8, RightEndPiece.transform.localPosition.y, RightEndPiece.transform.localPosition.z);
 
-        ////        this.GetComponent<CapsuleCollider2D>().size.Set(48, 8);
-        ////        GameObject.Find("Paddle").GetComponent<CapsuleCollider2D>().size.Set(48, 8);
-        ////        Capsule.size.Set(48, 8);
-        ////    }
-        ////}
-        ////else
-        ////{
-        ////    if (LeftPiece.transform.position.x + 8 != RightPiece.transform.position.x)
-        ////    {
-        ////        LeftEndPiece.transform.localPosition.Set(LeftEndPiece.transform.localPosition.x + 8, LeftEndPiece.transform.localPosition.y, LeftEndPiece.transform.localPosition.z);
-        ////        LeftPiece.transform.localPosition.Set(LeftPiece.transform.localPosition.x + 8, LeftPiece.transform.localPosition.y, LeftPiece.transform.localPosition.z);
-        ////        RightPiece.transform.localPosition.Set(RightPiece.transform.localPosition.x - 8, RightPiece.transform.localPosition.y, RightPiece.transform.localPosition.z);
-        ////        RightEndPiece.transform.localPosition.Set(RightEndPiece.transform.localPosition.x - 8, RightEndPiece.transform.localPosition.y, RightEndPiece.transform.localPosition.z);
+                print("Shrink");
 
-        ////        print("Shrink");
-
-        ////        var Capsule = GetComponent<CapsuleCollider2D>();
-
-        ////        this.GetComponent<CapsuleCollider2D>().size.Set(48, 8);
-        ////        GameObject.Find("Paddle").GetComponent<CapsuleCollider2D>().size.Set(48, 8);
-        ////        Capsule.size.Set(48, 8);
-        ////    }
-        ////}
-        //////End
+                GameObject.Find("Paddle").GetComponent<CapsuleCollider2D>().size = new Vector2(48, 8);
+            }
+        }
+        //End
     }
 }
