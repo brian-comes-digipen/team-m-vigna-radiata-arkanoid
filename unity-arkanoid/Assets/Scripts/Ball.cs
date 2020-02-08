@@ -74,6 +74,7 @@ public class Ball : MonoBehaviour
         {
             rb2D.velocity = new Vector2(-ballSpeed, ballSpeed);
         }
+        GameObject.Find("Paddle").GetComponent<PlayerController>().paddleType = PlayerController.PaddleType.Normal;
         yield return null;
     }
 }
