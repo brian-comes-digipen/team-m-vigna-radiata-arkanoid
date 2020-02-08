@@ -62,6 +62,10 @@ public class Block : MonoBehaviour
                         spawnedPowerup.transform.position = transform.position;
                     }
 
+                    var musicChange = GameObject.FindObjectOfType(typeof(MusicChange)) as MusicChange;
+                    if(musicChange != null)
+                        musicChange.BricksLeft -= 1;
+
                     Destroy(gameObject);
                 }
             }
