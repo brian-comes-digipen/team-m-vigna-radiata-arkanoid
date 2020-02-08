@@ -18,15 +18,19 @@ public class Powerup : MonoBehaviour
         spr = GetComponent<SpriteRenderer>();
         if (powerupType == PowerupType.Laser)
         {
-            spr.color = new Color(255f / 255f, 0f / 255f, 0f / 255f);
+            spr.color = Color.red;
         }
         else if (powerupType == PowerupType.Catch)
         {
-
+            spr.color = Color.green;
+        }
+        else if (powerupType == PowerupType.Extend)
+        {
+            spr.color = Color.blue;
         }
         else // if (powerupType == PowerupType.Player)
         {
-            spr.color = new Color(128f / 255f, 128f / 255f, 128f / 255f);
+            spr.color = Color.gray;
         }
     }
 
@@ -48,6 +52,7 @@ public class Powerup : MonoBehaviour
             if (powerupType == PowerupType.Laser)
             {
                 collision.gameObject.GetComponent<PlayerController>().paddleType = PlayerController.PaddleType.Laser;
+                collision.gameObject.GetComponent<PlayerController>().canFireLasers = true;
             }
             else if (powerupType == PowerupType.Catch)
             {
@@ -59,6 +64,7 @@ public class Powerup : MonoBehaviour
             }
             else // if (powerupType == PowerupType.Player)
             {
+                collision.gameObject.GetComponent<PlayerController>().paddleType = PlayerController.PaddleType.Normal;
                 GameManager.lives++;
             }
             // Powerup has been collected, destroy self

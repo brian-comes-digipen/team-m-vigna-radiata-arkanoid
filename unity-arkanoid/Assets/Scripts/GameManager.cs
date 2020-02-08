@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI highScoreText;
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI livesText;
+
+    
 
     #region GameManager Instance Stuff
     private static GameManager _instance;
@@ -72,6 +75,20 @@ public class GameManager : MonoBehaviour
         scoreText.text = $"  {score:00000}";
         livesText.text = $"  {lives}";
         levelText.text = $"{level}";
+        //evan
+        // if ball is null, reset and lose a life
+        if(GameObject.Find("Ball") == null)
+        {
+            livesText.text = $" {lives - 1}";
+            GameObject.Find("Ball").GetComponent<Transform>().transform.position = GameObject.Find("Respawn").GetComponent<Transform>().transform.position;
+          
+        }
+        // if life counter = zero, die 
+        if (lives == 0)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("End");
+                
+        }
     }
 
     IEnumerator oneUpTextFlash()

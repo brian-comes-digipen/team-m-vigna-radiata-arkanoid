@@ -54,7 +54,8 @@ public class Ball : MonoBehaviour
         while (shouldStickToPaddle)
         {
             ballState = BallState.Stuck;
-            transform.position = (Vector2)GameObject.Find("Paddle").transform.position + new Vector2(3, 5.5f);
+            transform.position = (Vector2)GameObject.Find("Paddle").transform.position + new Vector2(3f, 5.5f);
+            rb2D.velocity = Vector2.zero;
             yield return new WaitForEndOfFrame();
         }
         yield return null;
@@ -74,6 +75,7 @@ public class Ball : MonoBehaviour
         {
             rb2D.velocity = new Vector2(-ballSpeed, ballSpeed);
         }
+        GameObject.Find("Paddle").GetComponent<PlayerController>().paddleType = PlayerController.PaddleType.Normal;
         yield return null;
     }
 }
