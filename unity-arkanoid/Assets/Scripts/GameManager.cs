@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI livesText;
 
-    public GameObject ballPrefab;
+    
 
     #region GameManager Instance Stuff
     private static GameManager _instance;
@@ -79,13 +79,15 @@ public class GameManager : MonoBehaviour
         // if ball is null, reset and lose a life
         if(GameObject.Find("Ball") == null)
         {
-            livesText.text = $" {lives -1}";
-            
+            livesText.text = $" {lives - 1}";
+            UnityEngine.SceneManagement.SceneManager.LoadScene("BrianTesting");
+            livesText.text = $" {lives}";
+            livesText.text = $" {lives - 1}";
         }
         // if life counter = zero, die 
         if (lives == 0)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("End");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Start");
                 
         }
     }
