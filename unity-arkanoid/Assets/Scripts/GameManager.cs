@@ -80,9 +80,8 @@ public class GameManager : MonoBehaviour
         if(GameObject.Find("Ball") == null)
         {
             livesText.text = $" {lives - 1}";
-            UnityEngine.SceneManagement.SceneManager.LoadScene("BrianTesting");
-            livesText.text = $" {lives}";
-            livesText.text = $" {lives - 1}";
+            GameObject.Find("Ball").GetComponent<Transform>().transform.position = GameObject.Find("Respawn").GetComponent<Transform>().transform.position;
+          
         }
         // if life counter = zero, die 
         if (lives == 0)

@@ -7186,6 +7186,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  oneUpText: {fileID: 0}
   scoreText: {fileID: 0}
   highScoreText: {fileID: 0}
   levelText: {fileID: 0}
@@ -14953,6 +14954,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1710205597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1710205598}
+  m_Layer: 0
+  m_Name: Respawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1710205598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710205597}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.1, y: 6, z: -9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8316012129535980061}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1724977081
 GameObject:
   m_ObjectHideFlags: 0
@@ -20366,6 +20397,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6277540863433109785, guid: bd4905dac2d014e49a15229df762dc00,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8316012128460789905, guid: bd4905dac2d014e49a15229df762dc00,
         type: 3}
       propertyPath: m_Name
@@ -20464,7 +20500,7 @@ PrefabInstance:
     - target: {fileID: 8316012128615234467, guid: bd4905dac2d014e49a15229df762dc00,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.5
+      value: 16.5
       objectReference: {fileID: 0}
     - target: {fileID: 8316012128832448759, guid: bd4905dac2d014e49a15229df762dc00,
         type: 3}
@@ -20479,7 +20515,7 @@ PrefabInstance:
     - target: {fileID: 8316012130377330395, guid: bd4905dac2d014e49a15229df762dc00,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 8.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd4905dac2d014e49a15229df762dc00, type: 3}
