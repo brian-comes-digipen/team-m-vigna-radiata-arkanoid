@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Powerup : MonoBehaviour
 {
-    public enum PowerupType { Laser, Catch, Player };
+    public enum PowerupType { Laser, Catch, Player, Extend };
     public PowerupType powerupType = PowerupType.Laser;
     public float fallSpeed = -50f;
 
@@ -52,6 +52,10 @@ public class Powerup : MonoBehaviour
             else if (powerupType == PowerupType.Catch)
             {
                 collision.gameObject.GetComponent<PlayerController>().paddleType = PlayerController.PaddleType.Sticky;
+            }
+            else if (powerupType == PowerupType.Extend)
+            {
+                collision.gameObject.GetComponent<PlayerController>().paddleType = PlayerController.PaddleType.Enlarge;
             }
             else // if (powerupType == PowerupType.Player)
             {
