@@ -86,8 +86,8 @@ public class GameManager : MonoBehaviour
         // if life counter = zero, die 
         if (lives == 0)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("End");
-                
+            SceneManager.LoadScene("Start");
+
         }
     }
 
