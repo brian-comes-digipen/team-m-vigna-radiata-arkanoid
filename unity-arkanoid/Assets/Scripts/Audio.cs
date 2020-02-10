@@ -6,6 +6,8 @@ using UnityEngine.Events;
 public class Audio : MonoBehaviour
 {
     private RandomContainer randomC;
+    public bool plus = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,15 +22,23 @@ public class Audio : MonoBehaviour
     //put onto ball
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Paddle")
+        if (collision.gameObject.name == "Paddle" && this.GetComponent<Rigidbody2D>().velocity.y != 0)
         {
             print("paddle hit sfx played");
             randomC.PlaySound(0);
         }
-        if (collision.gameObject.name == "Wall")
+        if (collision.gameObject.GetComponent<Block>() != null)
         {
-            print("wall hit sfx played");
+            print("block hit sfx played");
             randomC.PlaySound(1);
+        }
+        if(plus)
+        {
+            if (collision.gameObject.name == "Wall")
+            {
+                print("wall hit sfx played");
+                randomC.PlaySound(1);
+            }
         }
     }
 }

@@ -5,6 +5,7 @@ using System;
 
 public class Ball : MonoBehaviour
 {
+    public bool offScreen = false;
     public bool shouldStickToPaddle = true;
     public BallState ballState = BallState.Start;
     public enum BallState { Start, Bounce, Stuck, Active = Bounce };
@@ -26,7 +27,7 @@ public class Ball : MonoBehaviour
         rb2D.velocity = new Vector2(rb2D.velocity.normalized.x * ballSpeed, rb2D.velocity.normalized.y * ballSpeed);
         if (transform.position.y <= -128)
         {
-            Destroy(gameObject);
+            offScreen = true;
         }
     }
 
