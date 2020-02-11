@@ -10,27 +10,29 @@ public class Powerup : MonoBehaviour
 
     Rigidbody2D rb2D;
     SpriteRenderer spr;
+    Animator ani;
     // Start is called before the first frame update
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         rb2D.velocity = new Vector2(0, fallSpeed);
         spr = GetComponent<SpriteRenderer>();
+        ani = GetComponentInChildren<Animator>();
         if (powerupType == PowerupType.Laser)
         {
-            spr.color = Color.red;
+            ani.SetInteger("powtype", 2);
         }
         else if (powerupType == PowerupType.Catch)
         {
-            spr.color = Color.green;
+            ani.SetInteger("powtype", 0);
         }
         else if (powerupType == PowerupType.Extend)
         {
-            spr.color = Color.blue;
+            ani.SetInteger("powtype", 1);
         }
         else // if (powerupType == PowerupType.Player)
         {
-            spr.color = Color.gray;
+            ani.SetInteger("powtype", 3);
         }
     }
 

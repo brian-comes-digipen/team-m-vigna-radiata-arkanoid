@@ -1,7 +1,43 @@
 fileFormatVersion: 2
 guid: bc64e9e82373cc64e8458804585152ff
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8038359276883844411
+    second: Arkanoid Powerup Pink Small.png_0
+  - first:
+      213: 4548563863413447904
+    second: Arkanoid Powerup Pink Small.png_1
+  - first:
+      213: -1510640461663051299
+    second: Arkanoid Powerup Pink Small.png_2
+  - first:
+      213: 4938318393497791635
+    second: Arkanoid Powerup Pink Small.png_3
+  - first:
+      213: 2199673247964033987
+    second: Arkanoid Powerup Pink Small.png_4
+  - first:
+      213: -1591044180356982148
+    second: Arkanoid Powerup Pink Small.png_5
+  - first:
+      213: -8134821933476749578
+    second: Arkanoid Powerup Pink Small.png_0
+  - first:
+      213: -7539272885681391613
+    second: Arkanoid Powerup Pink Small.png_1
+  - first:
+      213: -4654597888627626631
+    second: Arkanoid Powerup Pink Small.png_2
+  - first:
+      213: 308285830258062038
+    second: Arkanoid Powerup Pink Small.png_3
+  - first:
+      213: -2132766839122552983
+    second: Arkanoid Powerup Pink Small.png_4
+  - first:
+      213: -623127120950351446
+    second: Arkanoid Powerup Pink Small.png_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +76,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -96,7 +132,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Arkanoid Powerup Pink Small.png_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fedf083d8e4b1f80800000000000000
+      internalID: -8134821933476749578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arkanoid Powerup Pink Small.png_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 308f938514f1f5790800000000000000
+      internalID: -7539272885681391613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arkanoid Powerup Pink Small.png_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97d2114a1eb876fb0800000000000000
+      internalID: -4654597888627626631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arkanoid Powerup Pink Small.png_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d271d94450474400800000000000000
+      internalID: 308285830258062038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arkanoid Powerup Pink Small.png_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9671e551cd3e662e0800000000000000
+      internalID: -2132766839122552983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arkanoid Powerup Pink Small.png_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa9a7d95f253a57f0800000000000000
+      internalID: -623127120950351446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
