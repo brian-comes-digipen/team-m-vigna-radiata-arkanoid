@@ -25,6 +25,7 @@ public class MusicChange : MonoBehaviour
             if(Bricks/2 >= BricksLeft)
             {
                 Started = true;
+                GameObject.Find("Music").GetComponent<AudioSource>().Stop();
                 GameObject.Find("Music").GetComponent<AudioSource>().clip = Phase2;
             }
         }
