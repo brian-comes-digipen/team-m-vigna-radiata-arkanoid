@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
         else if (paddleType == PaddleType.Sticky && GameObject.Find("Ball") != null)
         {
             GameObject.Find("Ball").GetComponent<Ball>().shouldStickToPaddle = true;
-            if (Input.GetKey(KeyCode.Space) && GameObject.Find("Ball").GetComponent<Ball>().ballState == Ball.BallState.Stuck)
+            if ((Input.GetKey(KeyCode.Space) || (useMouse && Input.GetMouseButton(0))) && GameObject.Find("Ball").GetComponent<Ball>().ballState == Ball.BallState.Stuck)
             {
                 GameObject.Find("Ball").GetComponent<Ball>().shouldStickToPaddle = false;
                 StopCoroutine(GameObject.Find("Ball").GetComponent<Ball>().StickPaddle());
