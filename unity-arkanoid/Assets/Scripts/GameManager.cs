@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    private float timer = 0;
+    private float delay = 3f;
+
+
     public static int level = 1; // Just start levels at 1, we don't need base-zero here. :/
     public static int lives = 3;
     public static int score = 0;
@@ -77,17 +81,26 @@ public class GameManager : MonoBehaviour
         levelText.text = $"{level}";
         //evan
         // if ball is null, reset and lose a life
-        if(GameObject.Find("Ball") == null)
+        if(GameObject.Find("Ball").GetComponent<Ball>().offScreen)
         {
-            livesText.text = $" {lives - 1}";
-            GameObject.Find("Ball").GetComponent<Transform>().transform.position = GameObject.Find("Respawn").GetComponent<Transform>().transform.position;
-          
+            if(timer == 0)
+            {
+                GameObject.Find("Music").GetComponent<AudioSource>().Play();
+            }
+            timer += Time.deltaTime;
+            if (timer >= delay)
+            {
+                timer = 0;
+                lives -= 1;
+                GameObject.Find("Ball").GetComponent<Transform>().transform.position = GameObject.Find("Respawn").GetComponent<Transform>().transform.position;
+                GameObject.Find("Ball").GetComponent<Ball>().offScreen = false;
+            }
         }
         // if life counter = zero, die 
         if (lives == 0)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("End");
-                
+            SceneManager.LoadScene("Start");
+
         }
     }
 
