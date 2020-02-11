@@ -94,6 +94,9 @@ GameObject:
   - component: {fileID: 5720756229109645271}
   - component: {fileID: 5720756229109645096}
   - component: {fileID: 5720756229109645268}
+  - component: {fileID: 5720756230230264409}
+  - component: {fileID: 5720756230230264410}
+  - component: {fileID: 5720756230230264416}
   m_Layer: 12
   m_Name: Ball
   m_TagString: Untagged
@@ -215,6 +218,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2066b78bfd07c6546ac34e8fd48197ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offScreen: 0
   shouldStickToPaddle: 1
   ballState: 0
   ballSpeed: 200
+--- !u!114 &5720756230230264409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5720756229109645097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c798720a8718bc8438f5a8cf5f6d3d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 0b66509787050244999834480d192ec3, type: 3}
+  - {fileID: 8300000, guid: 99e38864144add24dbce66b3467afb5c, type: 3}
+  output: {fileID: -3679643881015796903, guid: daeb1c9af5de53f44a826b4ff0137c0d, type: 2}
+  keyToPress: 0
+  minPitch: 0.75
+  maxPitch: 1.25
+  keyToPressS1: 0
+  keyToPressS2: 0
+  keyToPressS3: 0
+  S1: 0
+  S2: 1
+  S3: 2
+  changePitch: 1
+  setPitch: 0
+  setPitchF: 1
+  setVolume: 1
+  setVolumeF: 1
+  minVolume: 0
+  maxVolume: 1
+  changeVolume: 0
+--- !u!114 &5720756230230264410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5720756229109645097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6b0c2d6a31e2a541809efc75ea24ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plus: 1
+--- !u!114 &5720756230230264416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5720756229109645097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651c1fb90943adc4e8c398606e8ad0f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 0
+  delay: 1.5

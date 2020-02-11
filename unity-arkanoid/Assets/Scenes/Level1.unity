@@ -5805,58 +5805,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &731085304 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5720756229109645097, guid: 76929be755a55a74f8ddabbbf966f502,
-    type: 3}
-  m_PrefabInstance: {fileID: 5720756230230264407}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &731085305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 731085304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6b0c2d6a31e2a541809efc75ea24ad8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plus: 0
---- !u!114 &731085306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 731085304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c798720a8718bc8438f5a8cf5f6d3d5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clips:
-  - {fileID: 8300000, guid: 711c6c1d25b08824abbd51ada37cd35b, type: 3}
-  - {fileID: 8300000, guid: 21ec1915e1d8d6b4184afc47ff8c86d5, type: 3}
-  output: {fileID: -3679643881015796903, guid: daeb1c9af5de53f44a826b4ff0137c0d, type: 2}
-  keyToPress: 0
-  minPitch: 0.75
-  maxPitch: 1.25
-  keyToPressS1: 0
-  keyToPressS2: 0
-  keyToPressS3: 0
-  S1: 0
-  S2: 1
-  S3: 2
-  changePitch: 1
-  setPitch: 0
-  setPitchF: 1
-  setVolume: 1
-  setVolumeF: 1
-  minVolume: 0
-  maxVolume: 1
-  changeVolume: 0
 --- !u!4 &746177942 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1404015951037817194, guid: 5ccd4a9d938ef734fb0df74ccb7358e9,
@@ -15858,6 +15806,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5720756230230264409, guid: 76929be755a55a74f8ddabbbf966f502,
+        type: 3}
+      propertyPath: clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 711c6c1d25b08824abbd51ada37cd35b, type: 3}
+    - target: {fileID: 5720756230230264409, guid: 76929be755a55a74f8ddabbbf966f502,
+        type: 3}
+      propertyPath: clips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 21ec1915e1d8d6b4184afc47ff8c86d5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76929be755a55a74f8ddabbbf966f502, type: 3}
 --- !u!1001 &8316012129535980054

@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 public class MusicChange : MonoBehaviour
 {
     public int BricksLeft = 66;
-    private int Bricks = 66;
+    public int Bricks = 66;
     private bool Started = false;
     public AudioClip Phase2 = null;
 
@@ -24,9 +24,11 @@ public class MusicChange : MonoBehaviour
         {
             if(Bricks/2 >= BricksLeft)
             {
+                print("CHANGE");
                 Started = true;
-                GameObject.Find("Music").GetComponent<AudioSource>().Stop();
-                GameObject.Find("Music").GetComponent<AudioSource>().clip = Phase2;
+                GameObject.Find("Background").GetComponent<AudioSource>().Stop();
+                GameObject.Find("Background").GetComponent<AudioSource>().clip = Phase2;
+                GameObject.Find("Background").GetComponent<AudioSource>().Play();
             }
         }
     }

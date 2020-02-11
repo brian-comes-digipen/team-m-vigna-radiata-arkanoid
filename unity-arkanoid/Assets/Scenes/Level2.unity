@@ -3252,6 +3252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BricksLeft: 66
+  Bricks: 66
   Phase2: {fileID: 8300000, guid: 62b42fa1f609d7e4fb0893355a1bf089, type: 3}
 --- !u!82 &433783522
 AudioSource:
@@ -3268,7 +3269,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -15889,11 +15890,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball
       objectReference: {fileID: 0}
-    - target: {fileID: 5720756229109645097, guid: 76929be755a55a74f8ddabbbf966f502,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5720756229109645269, guid: 76929be755a55a74f8ddabbbf966f502,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15951,58 +15947,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76929be755a55a74f8ddabbbf966f502, type: 3}
---- !u!1 &5720756230230264408 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5720756229109645097, guid: 76929be755a55a74f8ddabbbf966f502,
-    type: 3}
-  m_PrefabInstance: {fileID: 5720756230230264407}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5720756230230264409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5720756230230264408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c798720a8718bc8438f5a8cf5f6d3d5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clips:
-  - {fileID: 8300000, guid: 0b66509787050244999834480d192ec3, type: 3}
-  - {fileID: 8300000, guid: 99e38864144add24dbce66b3467afb5c, type: 3}
-  output: {fileID: -3679643881015796903, guid: daeb1c9af5de53f44a826b4ff0137c0d, type: 2}
-  keyToPress: 0
-  minPitch: 0.75
-  maxPitch: 1.25
-  keyToPressS1: 0
-  keyToPressS2: 0
-  keyToPressS3: 0
-  S1: 0
-  S2: 1
-  S3: 2
-  changePitch: 1
-  setPitch: 0
-  setPitchF: 1
-  setVolume: 1
-  setVolumeF: 1
-  minVolume: 0
-  maxVolume: 1
-  changeVolume: 0
---- !u!114 &5720756230230264410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5720756230230264408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6b0c2d6a31e2a541809efc75ea24ad8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plus: 1
 --- !u!1001 &8316012129535980054
 PrefabInstance:
   m_ObjectHideFlags: 0
