@@ -85,7 +85,8 @@ public class GameManager : MonoBehaviour
         {
             if(timer == 0)
             {
-                GameObject.Find("Background").GetComponent<AudioSource>().Pause();
+                if(GameObject.Find("Background") != null)
+                    GameObject.Find("Background").GetComponent<AudioSource>().Pause();
                 GameObject.Find("Music").GetComponent<AudioSource>().Play();
             }
             timer += Time.deltaTime;
@@ -95,7 +96,8 @@ public class GameManager : MonoBehaviour
                 lives -= 1;
                 GameObject.Find("Ball").GetComponent<Transform>().transform.position = GameObject.Find("Respawn").GetComponent<Transform>().transform.position;
                 GameObject.Find("Ball").GetComponent<Ball>().offScreen = false;
-                GameObject.Find("Background").GetComponent<AudioSource>().Play();
+                if (GameObject.Find("Background") != null)
+                    GameObject.Find("Background").GetComponent<AudioSource>().Play();
             }
         }
         // if life counter = zero, die 

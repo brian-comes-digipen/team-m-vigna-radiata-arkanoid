@@ -15816,6 +15816,11 @@ PrefabInstance:
       propertyPath: clips.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 21ec1915e1d8d6b4184afc47ff8c86d5, type: 3}
+    - target: {fileID: 5720756230230264416, guid: 76929be755a55a74f8ddabbbf966f502,
+        type: 3}
+      propertyPath: speedCatch
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76929be755a55a74f8ddabbbf966f502, type: 3}
 --- !u!1001 &8316012129535980054

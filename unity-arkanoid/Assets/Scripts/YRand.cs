@@ -8,6 +8,7 @@ public class YRand : MonoBehaviour
     public float timerx = 0;
     public float delay = 1.5f;
 
+    public float speedCatch = 7.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,23 +19,23 @@ public class YRand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(this.GetComponent<Rigidbody2D>().velocity.y > -4 && this.GetComponent<Rigidbody2D>().velocity.y < 4)
+        if(this.GetComponent<Rigidbody2D>().velocity.y > -speedCatch && this.GetComponent<Rigidbody2D>().velocity.y < speedCatch)
         {
             timery += Time.deltaTime;
             if(timery >= delay)
             {
-                this.GetComponent<Rigidbody2D>().velocity = new Vector2(this.GetComponent<Rigidbody2D>().velocity.x, this.GetComponent<Rigidbody2D>().velocity.y * 3);
+                this.GetComponent<Rigidbody2D>().velocity = new Vector2(this.GetComponent<Rigidbody2D>().velocity.x, this.GetComponent<Rigidbody2D>().velocity.y * 2.5f);
             }
         }else
         {
             timery = 0;
         }
-        if(this.GetComponent<Rigidbody2D>().velocity.x > -4 && this.GetComponent<Rigidbody2D>().velocity.x < 4)
+        if(this.GetComponent<Rigidbody2D>().velocity.x > -speedCatch && this.GetComponent<Rigidbody2D>().velocity.x < speedCatch)
         {
             timerx += Time.deltaTime;
             if (timerx >= delay)
             {
-                this.GetComponent<Rigidbody2D>().velocity = new Vector2(this.GetComponent<Rigidbody2D>().velocity.x * 3, this.GetComponent<Rigidbody2D>().velocity.y);
+                this.GetComponent<Rigidbody2D>().velocity = new Vector2(this.GetComponent<Rigidbody2D>().velocity.x * 2.5f, this.GetComponent<Rigidbody2D>().velocity.y);
             }
         }else
         {
