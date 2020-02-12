@@ -63,8 +63,11 @@ public class Block : MonoBehaviour
                     }
 
                     var musicChange = GameObject.FindObjectOfType(typeof(MusicChange)) as MusicChange;
-                    if(musicChange != null)
+                    var win = GameObject.FindObjectOfType(typeof(Win)) as Win;
+                    if (musicChange != null)
                         musicChange.BricksLeft -= 1;
+                    if (win != null)
+                        win.BricksLeft -= 1;
 
                     Destroy(gameObject);
                 }
