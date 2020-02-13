@@ -49,6 +49,10 @@ public class TitleInput : MonoBehaviour
         {
             mainText = GameObject.Find("Text_Main").GetComponent<TextMeshProUGUI>();
         }
+        if (SceneManager.GetActiveScene().name == "End")
+        {
+            mainText = GameObject.Find("Text_End").GetComponent<TextMeshProUGUI>();
+        }
     }
 
     // Update is called once per frame
@@ -85,6 +89,17 @@ public class TitleInput : MonoBehaviour
         else if (SceneManager.GetActiveScene().name.Contains("Level"))
         {
             GameObject.Find("Paddle").GetComponent<PlayerController>().useMouse = useMouse;
+        }
+        if (SceneManager.GetActiveScene().name == "End")
+        {
+            if(Input.GetKey(KeyCode.Q))
+            {
+                Application.Quit();
+            }
+            else if (Input.GetKey(KeyCode.M))
+            {
+                SceneManager.LoadScene("Start");
+            }
         }
     }
 }

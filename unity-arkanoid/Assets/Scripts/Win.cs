@@ -23,5 +23,9 @@ public class Win : MonoBehaviour
         {
             SceneManager.LoadScene(newLevel);
         }
+        if(BricksLeft <= 0 && SceneManager.GetActiveScene().name == ("Level2"))
+        {
+            SceneManager.LoadScene("End");
+        }
     }
 }
